@@ -58,7 +58,7 @@ export const querySwap = gql`{
 }`
 
 export const queryOperator = gql`{
-    operators(orderBy: tasksResponded) {
+    operators {
         id
         address
         lastActiveTimestamp

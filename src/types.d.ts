@@ -102,5 +102,5 @@ interface Operator {
     id: string;
     address: string;
     lastActiveTimestamp: string;
-    tasksResponded: TaskResponded;
+    tasksResponded: TaskResponded[];
 }

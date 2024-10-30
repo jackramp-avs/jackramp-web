@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import { request } from 'graphql-request';
 import { useQuery } from "@tanstack/react-query";
 import { Operator } from "@/types";
-import { queryProof } from "@/graphql/query";
+import { queryOperator } from "@/graphql/query";
 
 type QueryData = {
-    offRamps: Operator[];
+    operators: Operator[]
+    tasksResponded: Operator['tasksResponded']
 };
 
 export default function TableProof() {
@@ -22,7 +23,7 @@ export default function TableProof() {
     const { data, isLoading, refetch } = useQuery<QueryData>({
         queryKey: ['data'],
         queryFn: async () => {
-            return await request(url, queryProof);
+            return await request(url, queryOperator);
         },
         refetchInterval: 10000,
     });
@@ -38,7 +39,7 @@ export default function TableProof() {
     return (
         <div className="w-full space-y-4 p-5 h-auto z-10">
             <DataTable
-                data={data?.offRamps || []}
+                data={data?.operators[0]?.tasksResponded || []}
                 columns={columns()}
                 handleRefresh={handleRefresh}
                 isLoading={isLoading}

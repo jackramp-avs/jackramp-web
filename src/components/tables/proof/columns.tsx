@@ -3,26 +3,7 @@ import { DataTableColumnHeader } from "./ColumnHeader";
 import { Copy } from "lucide-react";
 import { toast } from "sonner";
 import { formatNullableAddress, formatNullableData, formatNullableTimestamp } from "@/lib/utils";
-
-interface TaskResponded {
-  receiver: string;
-  requestOfframpId: string;
-  respondedAt: string;
-  status: string;
-  taskCreatedBlock: number;
-  taskIndex: number;
-  transactionHash: string;
-  transactionId: string;
-  createdAt: string;
-  channelId: string;
-}
-
-interface Operator {
-  id: string;
-  address: string;
-  lastActiveTimestamp: string;
-  tasksResponded: TaskResponded;
-}
+import { TaskResponded } from "@/types";
 
 const copyToClipboard = (text: string) => {
   navigator.clipboard.writeText(text).then(() => {
@@ -32,7 +13,7 @@ const copyToClipboard = (text: string) => {
   });
 };
 
-export function columns(): ColumnDef<Operator>[] {
+export function columns(): ColumnDef<TaskResponded>[] {
   return [
     {
       id: "number",
@@ -46,29 +27,6 @@ export function columns(): ColumnDef<Operator>[] {
       enableSorting: false,
     },
     {
-      accessorKey: "id",
-      header: ({ column }) => (
-        <DataTableColumnHeader
-          column={column}
-          title="ID"
-        />
-      ),
-      cell: ({ row }) => (
-        <div className="flex items-center truncate w-fit justify-between">
-          <span className="mr-2">{formatNullableAddress(row.original.id)}</span>
-          {row.original.id && (
-            <button
-              onClick={() => copyToClipboard(row.original.id)}
-              aria-label="Copy to clipboard"
-              className="text-gray-500 hover:text-gray-700 focus:outline-none"
-            >
-              <Copy size={16} />
-            </button>
-          )}
-        </div>
-      ),
-    },
-    {
       accessorKey: "receiver",
       header: ({ column }) => (
         <DataTableColumnHeader
@@ -78,10 +36,10 @@ export function columns(): ColumnDef<Operator>[] {
       ),
       cell: ({ row }) => (
         <div className="flex items-center truncate w-fit justify-between">
-          <span className="mr-2">{formatNullableAddress(row.original.tasksResponded.receiver)}</span>
-          {row.original.tasksResponded.receiver && (
+          <span className="mr-2">{formatNullableAddress(row.original.receiver)}</span>
+          {row.original.receiver && (
             <button
-              onClick={() => copyToClipboard(row.original.tasksResponded.receiver)}
+              onClick={() => copyToClipboard(row.original.receiver)}
               aria-label="Copy to clipboard"
               className="text-gray-500 hover:text-gray-700 focus:outline-none"
             >
@@ -99,7 +57,7 @@ export function columns(): ColumnDef<Operator>[] {
           title="Status"
         />
       ),
-      cell: ({ row }) => <div>{formatNullableData(row.original.tasksResponded.status)}</div>,
+      cell: ({ row }) => <div>{formatNullableData(row.original.status)}</div>,
     },
     {
       accessorKey: "transactionHash",
@@ -111,10 +69,10 @@ export function columns(): ColumnDef<Operator>[] {
       ),
       cell: ({ row }) => (
         <div className="flex items-center truncate w-fit justify-between">
-          <span className="mr-2">{formatNullableAddress(row.original.tasksResponded.transactionHash)}</span>
-          {row.original.tasksResponded.transactionHash && (
+          <span className="mr-2">{formatNullableAddress(row.original.transactionHash)}</span>
+          {row.original.transactionHash && (
             <button
-              onClick={() => copyToClipboard(row.original.tasksResponded.transactionHash)}
+              onClick={() => copyToClipboard(row.original.transactionHash)}
               aria-label="Copy to clipboard"
               className="text-gray-500 hover:text-gray-700 focus:outline-none"
             >
@@ -123,16 +81,6 @@ export function columns(): ColumnDef<Operator>[] {
           )}
         </div>
       ),
-    },
-    {
-      accessorKey: "lastActiveTimestamp",
-      header: ({ column }) => (
-        <DataTableColumnHeader
-          column={column}
-          title="Last Active Timestamp"
-        />
-      ),
-      cell: ({ row }) => <div>{formatNullableTimestamp(row.original.lastActiveTimestamp)}</div>,
     },
     {
       accessorKey: "channelId",
@@ -144,10 +92,10 @@ export function columns(): ColumnDef<Operator>[] {
       ),
       cell: ({ row }) => (
         <div className="flex items-center truncate w-fit justify-between">
-          <span className="mr-2">{formatNullableAddress(row.original.tasksResponded.channelId)}</span>
-          {row.original.tasksResponded.channelId && (
+          <span className="mr-2">{formatNullableAddress(row.original.channelId).toUpperCase()}</span>
+          {row.original.channelId && (
             <button
-              onClick={() => copyToClipboard(row.original.tasksResponded.channelId)}
+              onClick={() => copyToClipboard(row.original.channelId)}
               aria-label="Copy to clipboard"
               className="text-gray-500 hover:text-gray-700 focus:outline-none"
             >
@@ -165,7 +113,7 @@ export function columns(): ColumnDef<Operator>[] {
           title="Created At"
         />
       ),
-      cell: ({ row }) => <div>{formatNullableTimestamp(row.original.tasksResponded.createdAt)}</div>,
+      cell: ({ row }) => <div>{formatNullableTimestamp(row.original.createdAt)}</div>,
     },
     {
       accessorKey: "respondedAt",
@@ -175,7 +123,7 @@ export function columns(): ColumnDef<Operator>[] {
           title="Responded At"
         />
       ),
-      cell: ({ row }) => <div>{formatNullableTimestamp(row.original.tasksResponded.respondedAt)}</div>,
+      cell: ({ row }) => <div>{formatNullableTimestamp(row.original.respondedAt)}</div>,
     },
   ];
 }
