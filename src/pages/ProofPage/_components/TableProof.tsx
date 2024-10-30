@@ -3,11 +3,11 @@ import { DataTable } from "@/components/tables/proof/DataTable";
 import { useEffect, useState } from "react";
 import { request } from 'graphql-request';
 import { useQuery } from "@tanstack/react-query";
-import { OffRamps } from "@/types";
+import { Operator } from "@/types";
 import { queryProof } from "@/graphql/query";
 
 type QueryData = {
-    offRamps: OffRamps[];
+    offRamps: Operator[];
 };
 
 export default function TableProof() {

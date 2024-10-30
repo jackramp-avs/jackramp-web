@@ -56,3 +56,23 @@ export const querySwap = gql`{
         transactionHash
     }
 }`
+
+export const queryOperator = gql`{
+    operators(orderBy: tasksResponded) {
+        id
+        address
+        lastActiveTimestamp
+        tasksResponded(orderBy: respondedAt, orderDirection: desc) {
+            receiver
+            requestOfframpId
+            respondedAt
+            status
+            taskCreatedBlock
+            taskIndex
+            transactionHash
+            transactionId
+            createdAt
+            channelId
+        }
+    }
+}`

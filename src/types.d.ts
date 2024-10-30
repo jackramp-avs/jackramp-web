@@ -84,3 +84,23 @@ export interface Swap {
     channelId: string;
     transactionHash: string;
 }
+
+interface TaskResponded {
+    receiver: string;
+    requestOfframpId: string;
+    respondedAt: string;
+    status: string;
+    taskCreatedBlock: number;
+    taskIndex: number;
+    transactionHash: string;
+    transactionId: string;
+    createdAt: string;
+    channelId: string;
+}
+
+interface Operator {
+    id: string;
+    address: string;
+    lastActiveTimestamp: string;
+    tasksResponded: TaskResponded;
+}
