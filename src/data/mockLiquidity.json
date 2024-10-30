@@ -1,0 +1,107 @@
+[
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 2,
+        "conversionRate": 1000
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 5,
+        "conversionRate": 1005
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 7,
+        "conversionRate": 1010
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 100,
+        "conversionRate": 1020
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 3000,
+        "conversionRate": 1030
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 21,
+        "conversionRate": 1040
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 572,
+        "conversionRate": 1050
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 100,
+        "conversionRate": 1200
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 4,
+        "conversionRate": 1005
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 19,
+        "conversionRate": 1015
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 351,
+        "conversionRate": 1060
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 2750,
+        "conversionRate": 1030
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 1,
+        "conversionRate": 1001
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 1000,
+        "conversionRate": 1025
+    },
+    {
+        "token": "M0",
+        "platform": "Jackramp",
+        "depositor": "0x2d256533fF413545D24226B00b753BDAEBf40265",
+        "amount": 11,
+        "conversionRate": 1009
+    }
+]

@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "Manrope";
+  src: url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap') format('woff2-variations');
+  font-style: normal;
+  font-weight: 200 800;
+}
+
+body {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 240, 8%, 22%, 0.6;
+    --foreground: 252, 37%, 98%, 1;
+    --card: 240, 8%, 22%, 0.7;
+    --card-foreground: 252, 37%, 99%, 0.7;
+    --popover: 222.2, 84%, 4.9%, 0.7;
+    --popover-foreground: 210, 40%, 98%, 0.7;
+    --primary: 0, 100%, 98%, 1;
+    --primary-foreground: 222.2, 47.4%, 11.2%, 1;
+    --secondary: 217.2, 32.6%, 17.5%, 1;
+    --secondary-foreground: 210, 40%, 98%, 1;
+    --muted: 217.2, 32.6%, 17.5%;
+    --muted-foreground: 215, 20.2%, 65.1%;
+    --accent: 217.2, 32.6%, 17.5%, 0.7;
+    --accent-foreground: 210, 40%, 98%, 0.7;
+    --destructive: 0, 62.8%, 30.6%, 0.7;
+    --destructive-foreground: 210, 40%, 98%, 0.7;
+    --border: 217.2, 32.6%, 17.5%, 0.7;
+    --zinc: 113, 113, 122, 0.7;
+    --input: 217.2, 32.6%, 17.5%, 0.7;
+    --ring: 212.7, 26.8%, 83.9%, 0.7;
+    --chart-1: 220, 70%, 50%, 0.7;
+    --chart-2: 160, 60%, 45%, 0.7;
+    --chart-3: 30, 80%, 55%, 0.7;
+    --chart-4: 280, 65%, 60%, 0.7;
+    --chart-5: 340, 75%, 55%, 0.7;
+    --text-secondary-emerald: 210, 100%, 56%, 0.7;
+    --radius: 0.5rem;
+  }
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+#nprogress {
+  pointer-events: none
+}
+
+#nprogress .bar {
+  background: #29d;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px
+}
+
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+  opacity: 1;
+  transform: rotate(3deg) translateY(-4px)
+}
+
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative
+}
+
+.nprogress-custom-parent #nprogress .bar {
+  position: absolute
+}
+
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(1turn)
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(97, 97, 97);
+  border-radius: 4px;
+}
