@@ -1,6 +1,6 @@
 # JackRamp
 
-JackRamp is a decentralized USD off-ramp solution powered by ZkVM technology, enabling seamless conversion between crypto and USD. The platform features JackUSD and M0 tokens, with M0 serving as the mining token for JackUSD.
+JackRamp is a decentralized USD off-ramp solution powered by AVS, enabling seamless conversion between crypto and USD. The platform features JackUSD and M0 tokens, with M0 serving as the mining token for JackUSD.
 
 ## 📧 Docs
 
