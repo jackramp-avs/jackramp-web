@@ -5,6 +5,7 @@ import { request } from 'graphql-request';
 import { useQuery } from "@tanstack/react-query";
 import { Operator } from "@/types";
 import { queryOperator } from "@/graphql/query";
+import { useAccount } from "wagmi";
 
 type QueryData = {
     operators: Operator[]
@@ -13,6 +14,7 @@ type QueryData = {
 
 export default function TableProof() {
     const [hasMounted, setHasMounted] = useState(false);
+    const { address } = useAccount();
 
     useEffect(() => {
         setHasMounted(true);
@@ -28,6 +30,8 @@ export default function TableProof() {
         refetchInterval: 10000,
     });
 
+    console.log("data = ", data);    
+
     const handleRefresh = () => {
         refetch();
     };
@@ -39,7 +43,11 @@ export default function TableProof() {
     return (
         <div className="w-full space-y-4 p-5 h-auto z-10">
             <DataTable
-                data={data?.operators[0]?.tasksResponded || []}
+                data={
+                    data?.operators && data.operators[0]?.tasksResponded && address 
+                        ? data.operators[0].tasksResponded 
+                        : []
+                }
                 columns={columns()}
                 handleRefresh={handleRefresh}
                 isLoading={isLoading}
