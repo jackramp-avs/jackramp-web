@@ -11,27 +11,6 @@ export const queryMint = gql`{
     }
 }`
 
-export const queryProof = gql`{
-    offRamps(orderBy: blockTimestamp, orderDirection: desc) {
-        id
-        user
-        requestedAmount
-        requestedAmountRealWorld
-        blockNumber
-        blockTimestamp
-        channelAccount
-        channelId
-        fillBlockNumber
-        fillBlockTimestamp
-        fillTransactionHash
-        proof
-        receiver
-        reclaimProof
-        status
-        transactionHash
-    }
-}`
-
 export const queryWithdraw = gql`{
     withdraws(orderBy: blockTimestamp, orderDirection: desc) {
         id

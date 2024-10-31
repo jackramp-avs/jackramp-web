@@ -4,7 +4,7 @@ JackRamp is a decentralized USD off-ramp solution powered by ZkVM technology, en
 
 ## 📧 Docs
 
-Project Documentation : [https://kbaji.gitbook.io/jackramp](https://kbaji.gitbook.io/jackramp)
+Project Documentation : [https://kbaji.gitbook.io/jackramp-avs](https://kbaji.gitbook.io/jackramp-avs)
 
 ## 🌟 Features
 
@@ -39,7 +39,7 @@ Project Documentation : [https://kbaji.gitbook.io/jackramp](https://kbaji.gitboo
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/jackramp/jackramp-web.git
+git clone https://github.com/jackramp-avs/jackramp-web.git
 cd jackramp-web
 ```
 
@@ -78,24 +78,23 @@ import { useWriteContract } from 'wagmi'
 
 ### Query Example
 ```graphql
-query OffRamps {
-    offRamps(orderBy: blockTimestamp, orderDirection: desc) {
+{
+    operators {
         id
-        user
-        requestedAmount
-        requestedAmountRealWorld
-        blockNumber
-        blockTimestamp
-        channelAccount
-        channelId
-        fillBlockNumber
-        fillBlockTimestamp
-        fillTransactionHash
-        proof
-        receiver
-        reclaimProof
-        status
-        transactionHash
+        address
+        lastActiveTimestamp
+        tasksResponded(orderBy: respondedAt, orderDirection: desc) {
+            receiver
+            requestOfframpId
+            respondedAt
+            status
+            taskCreatedBlock
+            taskIndex
+            transactionHash
+            transactionId
+            createdAt
+            channelId
+        }
     }
 }
 ```
