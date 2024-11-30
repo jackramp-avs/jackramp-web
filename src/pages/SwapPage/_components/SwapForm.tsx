@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { useAccount } from "wagmi";
-import { ADDRESS_MOCKERC20 } from "@/constants/config";
+import { ADDRESS_USDE } from "@/constants/config";
 import { useSwap } from "@/hooks/useSwap";
 import { toast } from "sonner";
 import { useInsufficientBalance } from "@/hooks/useInsufficientBalance";
@@ -41,7 +41,7 @@ export const SwapForm = () => {
 
     const { insufficientBalance } = useInsufficientBalance(
         address as HexAddress,
-        ADDRESS_MOCKERC20,
+        ADDRESS_USDE,
         amount
     );
 
@@ -106,7 +106,7 @@ export const SwapForm = () => {
 
     const buttonText = useMemo(() => {
         if (isSwapPending || isSwapConfirming) {
-            return "Swapping...";
+            return "Offramping...";
         }
         if (insufficientBalance) {
             return "Insufficient balance";
@@ -117,14 +117,14 @@ export const SwapForm = () => {
         if (!channelAccount.trim()) {
             return "Enter bank number";
         }
-        return "Swap";
+        return "Submit";
     }, [isSwapPending, isSwapConfirming, insufficientBalance, selectedBank, channelAccount]);
 
     return (
         <>
             {(isSwapPending || isSwapConfirming) && (
                 <LoadingTransaction
-                    message={isSwapPending ? "Swapping..." : "Confirming swapping..."}
+                    message={isSwapPending ? "Offramping..." : "Confirming offramp..."}
                 />
             )}
             <Form {...form}>
@@ -226,7 +226,7 @@ export const SwapForm = () => {
                 onClose={() => setShowSuccessDialog(false)}
                 txHash={swapHash || ""}
                 amount={amount}
-                processName="Swap"
+                processName="Off Ramp"
             />
         </>
     );

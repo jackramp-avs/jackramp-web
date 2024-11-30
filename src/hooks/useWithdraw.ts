@@ -1,4 +1,4 @@
-import { ADDRESS_JACKUSD } from "@/constants/config";
+import { ADDRESS_ENAUSD } from "@/constants/config";
 import { mockJackUSDABI } from "@/lib/abi/mockJackUSDABI";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -24,7 +24,7 @@ export const useWithdraw = () => {
         try {
             await writeWithdraw({
                 abi: mockJackUSDABI,
-                address: ADDRESS_JACKUSD,
+                address: ADDRESS_ENAUSD,
                 functionName: 'withdraw',
                 args: [BigInt(amount)],
             });

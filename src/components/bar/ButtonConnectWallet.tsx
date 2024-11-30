@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useBalance } from "@/hooks/useBalance";
 import { useAccount } from "wagmi";
-import { ADDRESS_JACKUSD } from "@/constants/config";
+import { ADDRESS_ENAUSD } from "@/constants/config";
 import { HexAddress } from "@/types";
 import { jackrampCoin } from "@/constants/jackramp-coin";
 
@@ -59,7 +59,7 @@ export function ButtonConnectWallet() {
 
 export const ConnectButtonWalletComponents = () => {
     const { address } = useAccount();
-    const { balance, error } = useBalance(address as HexAddress, ADDRESS_JACKUSD);
+    const { balance, error } = useBalance(address as HexAddress, ADDRESS_ENAUSD);
 
     return (
         <ConnectButton.Custom>

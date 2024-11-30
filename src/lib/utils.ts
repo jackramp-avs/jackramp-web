@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { USDC_DECIMALS } from "@/constants/config";
+import { USDE_DECIMALS } from "@/constants/config";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -36,7 +36,7 @@ export function convertTimestampToDate(timestamp: number): string {
 export const toUSDCAmount = (amount: string): bigint => {
   const cleanAmount = amount.replace(/,/g, '');
   const [whole, fraction = ""] = cleanAmount.split('.');
-  const paddedFraction = fraction.padEnd(USDC_DECIMALS, '0').slice(0, USDC_DECIMALS);
+  const paddedFraction = fraction.padEnd(USDE_DECIMALS, '0').slice(0, USDE_DECIMALS);
   return BigInt(whole + paddedFraction);
 };
 

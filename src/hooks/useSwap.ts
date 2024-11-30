@@ -1,4 +1,4 @@
-import { ADDRESS_JACKUSD } from "@/constants/config";
+import { ADDRESS_ENAUSD } from "@/constants/config";
 import { mockJackUSDABI } from "@/lib/abi/mockJackUSDABI";
 import { toast } from "sonner";
 import { useAccount, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
@@ -25,7 +25,7 @@ export const useSwap = () => {
         try {
             await writeSwap({
                 abi: mockJackUSDABI,
-                address: ADDRESS_JACKUSD,
+                address: ADDRESS_ENAUSD,
                 functionName: 'requestOfframp',
                 args: [{
                     user: address as HexAddress,
@@ -40,7 +40,7 @@ export const useSwap = () => {
                 await new Promise(resolve => setTimeout(resolve, 1000));
             }
 
-            toast.success('Tokens minted successfully!');
+            toast.success('Offramp successfully!');
         } catch (error) {
             console.error('Transaction error:', error);
             toast.error(error instanceof Error ? error.message : 'Transaction failed. Please try again.');

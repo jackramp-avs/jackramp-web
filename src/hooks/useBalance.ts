@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { readContract } from "@wagmi/core";
 import { config } from "@/lib/wagmi";
 import { HexAddress } from "@/types";
-import { mockM0ABI } from "@/lib/abi/mockM0ABI";
+import { usdeABI } from "@/lib/abi/usdeABI";
 
 interface UseBalanceOptions {
     debounceTime?: number;
@@ -47,7 +47,7 @@ export const useBalance = (
         try {
             const result = await readContract(config, {
                 address: token,
-                abi: mockM0ABI,
+                abi: usdeABI,
                 functionName: 'balanceOf',
                 args: [address],
             });

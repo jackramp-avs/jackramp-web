@@ -18,9 +18,9 @@ function App() {
       <Layout>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/mint' element={<MintPage />} />
+          <Route path='/swap' element={<MintPage />} />
           <Route path='/withdrawals' element={<WithdrawPage />} />
-          <Route path='/swap' element={<SwapPage />} />
+          <Route path='/offramp' element={<SwapPage />} />
           <Route path='/proof' element={<ProofPage />} />
           <Route path='/liquidity' element={<LiquidityPage />} />
         </Routes>

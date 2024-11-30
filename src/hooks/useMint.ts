@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAccount, useReadContract, useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
-import { ADDRESS_JACKUSD, ADDRESS_MOCKERC20 } from '@/constants/config';
+import { ADDRESS_ENAUSD, ADDRESS_USDE } from '@/constants/config';
 import { mockJackUSDABI } from '@/lib/abi/mockJackUSDABI';
 import { toast } from 'sonner';
 import { HexAddress } from '@/types';
@@ -36,11 +36,11 @@ export const useMint = () => {
 
     const { data: allowance } = useReadContract({
         abi: mockJackUSDABI,
-        address: ADDRESS_JACKUSD,
+        address: ADDRESS_ENAUSD,
         functionName: 'allowance',
         args: [
             address as HexAddress,
-            ADDRESS_MOCKERC20
+            ADDRESS_USDE
         ],
     });
 
@@ -48,14 +48,14 @@ export const useMint = () => {
         try {
             await writeApproval({
                 abi: mockJackUSDABI,
-                address: ADDRESS_MOCKERC20,
+                address: ADDRESS_USDE,
                 functionName: 'approve',
-                args: [ADDRESS_JACKUSD, BigInt(amount)],
+                args: [ADDRESS_ENAUSD, BigInt(amount)],
             });
 
             await writeMint({
                 abi: mockJackUSDABI,
-                address: ADDRESS_JACKUSD,
+                address: ADDRESS_ENAUSD,
                 functionName: 'mint',
                 args: [BigInt(amount)],
             });
@@ -64,7 +64,7 @@ export const useMint = () => {
                 await new Promise(resolve => setTimeout(resolve, 1000));
             }
 
-            toast.success('Tokens minted successfully!');
+            toast.success('Tokens sawped successfully!');
             setIsAlertOpen(true);
         } catch (error) {
             console.error('Transaction error:', error);

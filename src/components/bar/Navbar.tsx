@@ -9,9 +9,9 @@ import { Button } from '../ui/button';
 
 const items = [
   { label: "HOME", link: "/", icon: <Home className="h-[22px] w-[22px]" /> },
-  { label: "MINT", link: "/mint", icon: <CirclePlus className="h-[22px] w-[22px]" /> },
-  { label: "WITHDRAWALS", link: "/withdrawals", icon: <CircleArrowOutDownLeft className="h-[22px] w-[22px]" /> },
   { label: "SWAP", link: "/swap", icon: <ArrowRightLeft className="h-[22px] w-[22px]" /> },
+  { label: "WITHDRAWALS", link: "/withdrawals", icon: <CircleArrowOutDownLeft className="h-[22px] w-[22px]" /> },
+  { label: "OFFRAMP", link: "/offramp", icon: <CirclePlus className="h-[22px] w-[22px]" /> },
   { label: "PROOF", link: "/proof", icon: <CircleCheckBig className="h-[22px] w-[22px]" /> },
   { label: "LIQUIDITY", link: "/liquidity", icon: <Wallet className="h-[22px] w-[22px]" /> },
 ];

@@ -3,9 +3,8 @@ import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-import { m0Coin } from "@/constants/m0-coin";
 import { useAccount } from "wagmi";
-import { ADDRESS_MOCKERC20 } from "@/constants/config";
+import { ADDRESS_USDE } from "@/constants/config";
 import { useMint } from "@/hooks/useMint";
 import { toast } from "sonner";
 import { useInsufficientBalance } from "@/hooks/useInsufficientBalance";
@@ -15,6 +14,9 @@ import { ProcessingInfo } from "@/components/card/ProcessingInfo";
 import { Method } from "@/components/card/Method";
 import { CurrencyInput } from "@/components/card/CurrencyInput";
 import { SuccessDialog } from "@/components/dialog/SuccessDialog";
+import { usdeCoin } from "@/constants/usde-coin";
+import { jackrampCoin } from "@/constants/jackramp-coin";
+import { ArrowDownUp } from "lucide-react";
 
 interface FormData {
     confirmed: boolean;
@@ -29,7 +31,7 @@ export const MintForm = () => {
         insufficientBalance,
     } = useInsufficientBalance(
         address as HexAddress,
-        ADDRESS_MOCKERC20,
+        ADDRESS_USDE,
         amount
     );
 
@@ -90,12 +92,12 @@ export const MintForm = () => {
 
     const buttonText = useMemo(() => {
         if (isMintPending || isApprovalPending || isMintConfirming || isApprovalConfirming) {
-            return 'Minting...';
+            return 'Swapping...';
         }
         if (insufficientBalance) {
             return 'Insufficient balance';
         }
-        return 'Mint';
+        return 'Swap';
     }, [isMintPending, isApprovalPending, isMintConfirming, isApprovalConfirming, insufficientBalance]);
 
     return (
@@ -105,7 +107,7 @@ export const MintForm = () => {
                     message={
                         isApprovalPending || isApprovalConfirming
                             ? "Approving Transaction..."
-                            : "Minting In Progress..."
+                            : "Swapping In Progress..."
                     }
                 />
             )}
@@ -121,14 +123,28 @@ export const MintForm = () => {
                                 <CurrencyInput
                                     value={amount}
                                     onChange={handleAmountChange}
-                                    coin={m0Coin}
+                                    coin={usdeCoin}
+                                />
+                            </motion.div>
+                            <motion.div className="flex items-center justify-center">
+                                <ArrowDownUp />
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: 0.4 }}
+                            >
+                                <CurrencyInput
+                                    value={amount}
+                                    onChange={handleAmountChange}
+                                    coin={jackrampCoin}
                                 />
                             </motion.div>
                         </div>
                         <div className="flex flex-row gap-5">
                             <Method
-                                value={"jackramp"}
-                                title={"JackRamp"}
+                                value={"enaramp"}
+                                title={"EnaRamp"}
                                 duration={"Realtime"}
                                 rate={"1-1"}
                                 onClick={() => { }}
@@ -142,7 +158,7 @@ export const MintForm = () => {
                             />
                         </div>
                         <ProcessingInfo
-                            method={"jackramp"}
+                            method={"enaramp"}
                             networkFee={"-"}
                         />
                         <Button
@@ -160,7 +176,7 @@ export const MintForm = () => {
                 onClose={() => setShowSuccessDialog(false)}
                 txHash={mintHash || ''}
                 amount={amount}
-                processName={"Mint"}
+                processName={"Swap"}
             />
         </>
     );

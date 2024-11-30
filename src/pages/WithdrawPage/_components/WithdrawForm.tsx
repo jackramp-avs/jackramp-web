@@ -6,7 +6,7 @@ import { Form } from "@/components/ui/form";
 import { useAccount } from "wagmi";
 import { useBalance } from "@/hooks/useBalance";
 import { HexAddress } from "@/types";
-import { ADDRESS_JACKUSD } from "@/constants/config";
+import { ADDRESS_ENAUSD } from "@/constants/config";
 import { Label } from "@/components/ui/label";
 import { useWithdraw } from "@/hooks/useWithdraw";
 import { convertBigIntToNumber } from "@/lib/utils";
@@ -23,7 +23,7 @@ export const WithdrawForm = () => {
     const { address } = useAccount();
     const [showSuccessDialog, setShowSuccessDialog] = useState(false);
 
-    const { balance } = useBalance(address as HexAddress, ADDRESS_JACKUSD);
+    const { balance } = useBalance(address as HexAddress, ADDRESS_ENAUSD);
 
     const {
         isWithdrawPending,
